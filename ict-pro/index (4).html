@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="style (1).css">
+	<title>RecipeBook</title>
+</head>
+<body>
+
+	<div class="rw">
+  <nav class="nav">
+    <div class="nav-logo">🌿 Akhidenor joseph  recipe-book</div>
+    <div class="nav-search">
+      <i class="ti ti-search" style="color:var(--color-text-tertiary);font-size:15px" aria-hidden="true"></i>
+      <input type="text" id="search-input" placeholder="Search recipes..." oninput="filterRecipes()">
+    </div>
+  </nav>
+
+  <div class="hero">
+    <h1>Cook something<br>wonderful today</h1>
+    <p>Discover simple, delicious recipes for every occasion and taste.</p>
+    <div class="tags" id="tags">
+      <button class="tag active" onclick="setTag('All', this)">All</button>
+      <button class="tag" onclick="setTag('Breakfast', this)">Breakfast</button>
+      <button class="tag" onclick="setTag('Lunch', this)">Lunch</button>
+      <button class="tag" onclick="setTag('Dinner', this)">Dinner</button>
+      <button class="tag" onclick="setTag('Dessert', this)">Dessert</button>
+      <button class="tag" onclick="setTag('Snack', this)">Snack</button>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title" id="section-label">All Recipes</div>
+    <div class="grid" id="recipe-grid"></div>
+    <div class="no-results" id="no-results" style="display:none">No recipes found. Try a different search!</div>
+  </div>
+</div>
+
+<div class="modal-bg" id="modal-bg" onclick="closeModal(event)">
+  <div class="modal" id="modal">
+    <button class="close-btn" onclick="closeModal(null)" aria-label="Close">×</button>
+    <div class="modal-header">
+      <span class="modal-emoji" id="m-emoji"></span>
+      <div class="modal-cat" id="m-cat"></div>
+      <div class="modal-title" id="m-title"></div>
+      <div class="modal-desc" id="m-desc"></div>
+      <div class="modal-meta">
+        <div class="modal-meta-item"><div class="label">Time</div><div class="value" id="m-time"></div></div>
+        <div class="modal-meta-item"><div class="label">Servings</div><div class="value" id="m-serv"></div></div>
+        <div class="modal-meta-item"><div class="label">Difficulty</div><div class="value" id="m-diff"></div></div>
+      </div>
+    </div>
+    <div class="modal-body">
+      <h3>Ingredients</h3>
+      <ul class="ingredient-list" id="m-ing"></ul>
+      <h3>Instructions</h3>
+      <ol class="step-list" id="m-steps"></ol>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
